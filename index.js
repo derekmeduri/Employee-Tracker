@@ -74,7 +74,7 @@ function addDepartment() {
     .prompt({
       name: "newDept",
       type: "input",
-      message: "What is the name of the Department you would like to add?",
+      message: "What is the name of the Department you would like to create?",
     })
     .then(function (answer) {
       db.query(
@@ -88,9 +88,74 @@ function addDepartment() {
       );
     });
 }
-function addRole() {}
+function addRole() {
+  inquirer
+    .prompt([
+      {
+        name: "newRole",
+        type: "input",
+        message: "What is the name of rhe Role you would like to create?",
+      },
+      {
+        name: "yearlySalary",
+        type: "input",
+        message: "What is the yearly Salary for this Role?",
+      },
+      {
+        name: "deptID",
+        type: "input",
+        message: "What is the Department ID for this Role?",
+      },
+    ])
+    .then(function (answer) {
+      db.query(
+        "INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)",
+        [answer.newRole, answer.yearlySalary, answer.deptID],
+        function (error, res) {
+          if (error) throw error;
+          console.log(res);
+          startScreen();
+        }
+      );
+    });
+}
 
-function addEmployee() {}
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        name: "neFirst",
+        type: "input",
+        message: "What is the First Name of the new Employee?",
+      },
+      {
+        name: "neLast",
+        type: "input",
+        message: "What is their Last Name?",
+      },
+      {
+        name: "roleID",
+        type: "input",
+        message: "What is the employee's Role ID number?",
+      },
+      {
+        name: "managerID",
+        type: "input",
+        message: "What is their manager's ID number?",
+      },
+    ])
+    .then(function (answer) {
+      db.query(
+        "INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)",
+        [answer.neFirst, answer.neLast, answer.roleID, answer.managerID],
+        function (error, res) {
+          if (error) throw error;
+          console.log(res);
+          startScreen();
+        }
+      );
+    });
+}
 
 function viewEmployees() {
   let query = "SELECT * FROM employee";
