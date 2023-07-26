@@ -68,3 +68,33 @@ function startScreen() {
       }
     });
 }
+
+function addDepartment() {}
+
+function addRole() {}
+
+function addEmployee() {}
+
+function viewEmployees() {
+  let query = "SELECT * FROM employee";
+  db.query(query, function (error, res) {
+    if (error) throw error;
+    console.log(res);
+    startScreen();
+  });
+}
+
+function updateRole() {}
+
+function viewRoles() {
+  let query = "SELECT * FROM role";
+  db.query(query, function (error, res) {
+    if (error) throw error;
+    console.log(res);
+    startScreen();
+  });
+}
+
+function viewDepartments() {}
+
+function quit() {}
