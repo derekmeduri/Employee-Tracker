@@ -69,8 +69,25 @@ function startScreen() {
     });
 }
 
-function addDepartment() {}
-
+function addDepartment() {
+  inquirer
+    .prompt({
+      name: "newDept",
+      type: "input",
+      message: "What is the name of the Department you would like to add?",
+    })
+    .then(function (answer) {
+      db.query(
+        "INSERT INTO department (name) VALUES (?)",
+        [answer.deptName],
+        function (error, res) {
+          if (error) throw error;
+          console.log(res);
+          startScreen();
+        }
+      );
+    });
+}
 function addRole() {}
 
 function addEmployee() {}
