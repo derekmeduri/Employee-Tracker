@@ -95,6 +95,13 @@ function viewRoles() {
   });
 }
 
-function viewDepartments() {}
+function viewDepartments() {
+  let query = "SELECT * FROM department";
+  db.query(query, function (error, res) {
+    if (error) throw error;
+    console.log(res);
+    startScreen();
+  });
+}
 
 function quit() {}
