@@ -166,7 +166,32 @@ function viewEmployees() {
   });
 }
 
-function updateRole() {}
+function updateRole() {
+  inquirer
+    .prompt([
+      {
+        name: "updateEmp",
+        type: "input",
+        message: "Which employee would you like to update?",
+      },
+      {
+        name: "updatedRole",
+        type: "input",
+        message: "What is the Role ID number for their new Role?",
+      },
+    ])
+    .then(function (answer) {
+      db.query(
+        "UPDATE employee SET role_id WHERE first_name = ? ",
+        [answer.updatedRole, answer.updateEmp],
+        function (error, res) {
+          if (error) throw error;
+          console.log(res);
+          startScreen();
+        }
+      );
+    });
+}
 
 function viewRoles() {
   let query = "SELECT * FROM role";
@@ -186,4 +211,7 @@ function viewDepartments() {
   });
 }
 
-function quit() {}
+function quit() {
+  db.end();
+  process.exit();
+}
