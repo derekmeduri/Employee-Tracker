@@ -22,17 +22,19 @@
 
     ## Demo Link
 
+    ## Screenshots
+
     ## Description
 
     Using CLI to track employee databases. The client should be able to view all employees, departments and roles. The client should also be able to add/update employees, add departments and add roles.
 
     ## Installation
 
-    user should run npm install in the command-line to make sure all libraries are installed. Then user can run node index.js in the command terminal to launch application.
+    Nodejs, Inquirer 8.2.4, MySQL2, and Console.Table are all required to run this command-line application .User should run "npm install" in the command-line to make sure all dependencies are installed. Then user can run "node index.js" in the command terminal to launch application.
 
     ## Usage
 
-    personal use only
+    personal use only.
 
     ## Questions
 

@@ -87,7 +87,7 @@ function addDepartment() {
     .then(function (answer) {
       connection.query(
         "INSERT INTO department (name) VALUES (?)",
-        [answer.deptName],
+        [answer.newDept],
         function (error, res) {
           if (error) throw error;
           console.table(res);
@@ -104,7 +104,7 @@ function addRole() {
       {
         name: "newRole",
         type: "input",
-        message: "What is the name of the Role you would like to create?",
+        message: "What is the name of tnohe Role you would like to create?",
       },
       {
         name: "yearlySalary",
@@ -193,7 +193,7 @@ function updateRole() {
     ])
     .then(function (answer) {
       connection.query(
-        "UPDATE employee SET role_id WHERE first_name = ? ",
+        "UPDATE employee SET role_id=? WHERE first_name = ? ",
         [answer.updatedRole, answer.updateEmp],
         function (error, res) {
           if (error) throw error;
