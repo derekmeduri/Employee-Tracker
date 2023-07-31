@@ -104,7 +104,7 @@ function addRole() {
       {
         name: "newRole",
         type: "input",
-        message: "What is the name of rhe Role you would like to create?",
+        message: "What is the name of the Role you would like to create?",
       },
       {
         name: "yearlySalary",
