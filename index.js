@@ -68,6 +68,7 @@ function startScreen() {
 
         case "View All Departments":
           viewDepartments();
+          break;
 
         default:
           quit();
