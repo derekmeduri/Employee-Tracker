@@ -1,3 +1,4 @@
+//required dependencies
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
 const db = require(".");
@@ -14,7 +15,7 @@ const connection = mysql.createConnection({
 
 connection.connect(function (error) {
   if (error) throw error;
-  console.log("");
+  console.log("connected");
 
   startScreen();
 });
