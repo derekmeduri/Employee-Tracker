@@ -26,7 +26,7 @@
 
     ![QR Code](./assets/sqlqrcode.jpg)
 
-    [GitHub Rep]()
+    [GitHub Repo](https://github.com/derekmeduri/Employee-Tracker)
 
     ## Screenshots
 
