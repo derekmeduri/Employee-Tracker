@@ -1,8 +1,12 @@
 const inquirer = require("inquirer");
 const mysql = require("mysql2");
+const db = require("");
+const cTable = require("console.table");
 
+//conect to database
 const connection = mysql.createConnection({
   host: "localhost",
+  port: 3306,
   user: "root",
   password: "",
   database: "employee_db",
@@ -14,7 +18,7 @@ connection.connect(function (error) {
 
   startScreen();
 });
-
+//start screen function to prompt employee database choices
 function startScreen() {
   inquirer
     .prompt({
@@ -35,6 +39,7 @@ function startScreen() {
     .then(function (result) {
       console.log("You've selected: " + result.choices);
 
+      //switch cases depending on selection at start screen
       switch (result.choices) {
         case "Add Department":
           addDepartment();
@@ -68,7 +73,8 @@ function startScreen() {
       }
     });
 }
-
+//function to prompt user which department they are creating
+//need name of dept
 function addDepartment() {
   inquirer
     .prompt({
@@ -82,12 +88,14 @@ function addDepartment() {
         [answer.deptName],
         function (error, res) {
           if (error) throw error;
-          console.log(res);
+          console.table(res);
           startScreen();
         }
       );
     });
 }
+//function when user selects to add role
+//need to prompt user for new role, salary and dept id number.
 function addRole() {
   inquirer
     .prompt([
@@ -113,13 +121,14 @@ function addRole() {
         [answer.newRole, answer.yearlySalary, answer.deptID],
         function (error, res) {
           if (error) throw error;
-          console.log(res);
+          console.table(res);
           startScreen();
         }
       );
     });
 }
-
+//function to add employee
+//need to prompt user for first name, last name and role id
 function addEmployee() {
   inquirer
     .prompt([
@@ -150,22 +159,22 @@ function addEmployee() {
         [answer.neFirst, answer.neLast, answer.roleID, answer.managerID],
         function (error, res) {
           if (error) throw error;
-          console.log(res);
+          console.table(res);
           startScreen();
         }
       );
     });
 }
-
+//function when user wants to view all employeesf rom database
 function viewEmployees() {
   let query = "SELECT * FROM employee";
   connection.query(query, function (error, res) {
     if (error) throw error;
-    console.log(res);
+    console.table(res);
     startScreen();
   });
 }
-
+//function for when user selects to update role. need to prompt questions for role.
 function updateRole() {
   inquirer
     .prompt([
@@ -186,31 +195,31 @@ function updateRole() {
         [answer.updatedRole, answer.updateEmp],
         function (error, res) {
           if (error) throw error;
-          console.log(res);
+          console.table(res);
           startScreen();
         }
       );
     });
 }
-
+//function for when user wants to view all roles
 function viewRoles() {
   let query = "SELECT * FROM role";
   connection.query(query, function (error, res) {
     if (error) throw error;
-    console.log(res);
+    console.table(res);
     startScreen();
   });
 }
-
+//function when user wants to select/view all departments
 function viewDepartments() {
   let query = "SELECT * FROM department";
   connection.query(query, function (error, res) {
     if (error) throw error;
-    console.log(res);
+    console.table(res);
     startScreen();
   });
 }
-
+//when user selects quit the connection is ended
 function quit() {
   connection.end();
   process.exit();

@@ -29,10 +29,17 @@ VALUES ("Lawyer", 190000.00, 4);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ("Jordan", "Belfort", 1, NULL);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("");
+VALUES ("Susan", "Storm", 8, 4);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Tony", "Stark", 4, NULL);
+VALUES ("Tony", "Stark", 3, NULL);
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ();
+VALUES ("Richard", "Hendricks", 4, 2 );
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ();
+VALUES ("Donnie", "Azoff", 2, 1 );
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Carwood", "Lipton", 7, NULL);
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Sarah", "Davis", 5, NULL);
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Rose", "Lavelle", 6, 12);
+
