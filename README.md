@@ -22,7 +22,21 @@
 
     ## Demo Link
 
+    [Demo Link](https://drive.google.com/file/d/1hmdwT0VheBbNpdY2DTz6oj4IR9cl_1ds/view)
+
+    ![QR Code](./assets/sqlqrcode.jpg)
+
+    [GitHub Rep]()
+
     ## Screenshots
+
+    ![seeds](./assets/ETseeds.png)
+
+    ![database dept](./assets/workbench%20dept.png)
+
+    ![database role](./assets/workbench%20roles.png)
+
+    ![database employees](./assets/workbench%20employees.png)
 
     ## Description
 
